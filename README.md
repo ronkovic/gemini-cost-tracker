@@ -249,7 +249,7 @@ Error: AUTH_MISSING_GCP_PROJECT - Google Cloud Project ID not configured
 
 ### セットアップ
 ```bash
-git clone https://github.com/username/gemini-cost-tracker.git
+git clone https://github.com/ronkovic/gemini-cost-tracker.git
 cd gemini-cost-tracker
 npm install
 npm run build
@@ -282,6 +282,12 @@ MIT License
 バグ報告や機能要望は、GitHubのIssuesからお願いします。プロジェクトへの貢献については、[貢献ガイドライン](./CONTRIBUTING.md)をご確認ください。
 
 ## 更新履歴
+
+### v0.1.1
+- config コマンドの npx 環境でのエラーを修正
+- 設定ディレクトリに XDG_CONFIG_HOME 標準を採用
+- 設定更新時の既存値保持を改善
+- チャート表示機能の追加
 
 ### v0.1.0
 - 初回リリース
