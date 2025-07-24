@@ -16,7 +16,7 @@ interface LogEntry {
 }
 
 class Logger {
-  private level: LogLevel = LogLevel.INFO;
+  private level: LogLevel = LogLevel.WARN;  // デフォルトを WARN に変更
   private format: 'json' | 'text' = 'text';
 
   setLevel(level: LogLevel): void {

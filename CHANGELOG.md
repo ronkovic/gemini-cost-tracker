@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] - 2025-01-24
+
+### Changed
+- Clean up log output by changing default log level to WARN
+- Move mock data notifications from WARN to DEBUG level
+- Improve user experience with cleaner command output
+
 ## [0.1.2] - 2025-01-24
 
 ### Fixed

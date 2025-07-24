@@ -59,7 +59,7 @@ export class VertexClient implements APIClient {
         const realUsage = await this.realUsageClient.getUsage(params);
         return realUsage.filter((usage) => usage.service === 'vertex-ai');
       } else {
-        logger.warn('Using mock data - real data not enabled');
+        logger.debug('Using mock data - real data not enabled');
         return this.generateMockUsageData(params);
       }
     } catch (error) {
