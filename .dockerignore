@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+
+# Source files (we only need dist/)
+src/
+tests/
+*.ts
+tsconfig.json
+
+# Documentation
+README.md
+CHANGELOG.md
+*.md
+
+# Configuration files
+.eslintrc.js
+.prettierrc
+jest.config.cjs
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git files
+.git/
+.gitignore
+
+# CI/CD files
+.github/
+
+# Cache and temporary files
+*.log
+*.tmp
+.cache/
+coverage/
+
+# Environment files
+.env*

@@ -1,0 +1,77 @@
+{
+  "name": "gemini-cost-tracker",
+  "version": "0.1.0",
+  "description": "CLI tool to display token usage and costs for Gemini and Vertex AI",
+  "main": "dist/index.js",
+  "bin": {
+    "gemini-cost-tracker": "./bin/gemini-cost-tracker"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "test": "jest --config=jest.config.cjs",
+    "test:watch": "jest --config=jest.config.cjs --watch",
+    "test:coverage": "jest --config=jest.config.cjs --coverage",
+    "test:integration": "jest --config=jest.config.cjs tests/integration/",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "type-check": "tsc --noEmit",
+    "ci": "npm run type-check && npm run build",
+    "prepublishOnly": "npm run ci"
+  },
+  "keywords": [
+    "gemini",
+    "vertex-ai",
+    "cost-tracking",
+    "usage-monitoring",
+    "cli",
+    "google-cloud",
+    "ai-tools",
+    "token-analysis",
+    "typescript",
+    "npm-package"
+  ],
+  "author": "ronkovic",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ronkovic/gemini-cost-tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ronkovic/gemini-cost-tracker/issues"
+  },
+  "homepage": "https://github.com/ronkovic/gemini-cost-tracker#readme",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "eslint": "^9.31.0",
+    "jest": "^30.0.5",
+    "prettier": "^3.6.2",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@google-cloud/billing": "^5.1.0",
+    "@google-cloud/logging": "^11.2.0",
+    "@google-cloud/monitoring": "^5.3.0",
+    "axios": "^1.11.0",
+    "babar": "^0.2.3",
+    "chalk": "^4.1.2",
+    "cli-chart": "^0.3.1",
+    "cli-table3": "^0.6.5",
+    "commander": "^14.0.0",
+    "dotenv": "^17.2.0",
+    "googleapis": "^154.0.0",
+    "inquirer": "^12.8.2",
+    "ora": "^8.2.0"
+  }
+}
