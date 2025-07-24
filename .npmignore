@@ -1,0 +1,63 @@
+# Source files
+src/
+tests/
+
+# Development files
+.github/
+.git/
+.env*
+*.log
+node_modules/
+coverage/
+
+# Documentation (except essential ones)
+*.md
+!README.md
+!CHANGELOG.md
+!LICENSE
+docs/
+design.md
+requirements.md
+tasks.md
+CONTRIBUTING.md
+
+# Config files
+jest.config.cjs
+eslint.config.js
+tsconfig.json
+Dockerfile
+.gitignore
+.prettierrc
+.eslintrc*
+.mcp.json
+
+# Generated files
+*.csv
+*.json
+!package.json
+!package-lock.json
+pricing-cache.json
+ca-cs-*
+monthly-*
+week-*
+usage-*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+*.test.ts
+*.test.js
+*.spec.ts
+*.spec.js
+
+# Backup files
+*.backup.*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

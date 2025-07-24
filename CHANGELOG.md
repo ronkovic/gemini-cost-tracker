@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2025-01-24
+
+### Fixed
+- Config command error when using with npx (AUTH_SAVE_ERROR)
+- Configuration directory creation using XDG_CONFIG_HOME standard
+- Preserve existing configuration values when updating individual settings
+
 ### Added
 - Chart format display option for visual data representation
 - Daily cost trend graphs with ASCII bar charts

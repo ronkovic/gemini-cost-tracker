@@ -9,7 +9,9 @@ export class AuthManager {
   private credentials: AuthCredentials = {};
 
   constructor() {
-    this.configDir = path.join(os.homedir(), '.gemini-cost-tracker');
+    // Use XDG_CONFIG_HOME if available, otherwise fall back to home directory
+    const configHome = process.env.XDG_CONFIG_HOME || path.join(os.homedir(), '.config');
+    this.configDir = path.join(configHome, 'gemini-cost-tracker');
     this.configFile = path.join(this.configDir, 'config.json');
   }
 
@@ -50,7 +52,10 @@ export class AuthManager {
       this.credentials.geminiApiKey = process.env.GEMINI_API_KEY;
     }
 
-    if (process.env.GOOGLE_CLOUD_PROJECT) {
+    // Check both GCP_PROJECT_ID and GOOGLE_CLOUD_PROJECT
+    if (process.env.GCP_PROJECT_ID) {
+      this.credentials.gcpProjectId = process.env.GCP_PROJECT_ID;
+    } else if (process.env.GOOGLE_CLOUD_PROJECT) {
       this.credentials.gcpProjectId = process.env.GOOGLE_CLOUD_PROJECT;
     }
 
@@ -61,12 +66,19 @@ export class AuthManager {
 
   private async saveConfiguration(): Promise<void> {
     try {
+      // Ensure config directory exists before writing
+      await fs.mkdir(this.configDir, { recursive: true });
+      
       const configData = JSON.stringify(this.credentials, null, 2);
       await fs.writeFile(this.configFile, configData, 'utf8');
     } catch (error) {
+      // Provide more detailed error information
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      const errorCode = error instanceof Error && 'code' in error ? (error as any).code : 'UNKNOWN';
+      
       throw new AppError(
         ErrorCode.AUTH_SAVE_ERROR,
-        `Failed to save configuration: ${error instanceof Error ? error.message : 'Unknown error'}`
+        `Failed to save configuration to ${this.configFile}: ${errorMessage} (code: ${errorCode})`
       );
     }
   }
@@ -79,11 +91,15 @@ export class AuthManager {
   }
 
   async setGeminiApiKey(apiKey: string): Promise<void> {
+    // Reload current configuration to preserve other values
+    await this.loadConfiguration();
     this.credentials.geminiApiKey = apiKey;
     await this.saveConfiguration();
   }
 
   async setGcpProjectId(projectId: string): Promise<void> {
+    // Reload current configuration to preserve other values
+    await this.loadConfiguration();
     this.credentials.gcpProjectId = projectId;
     await this.saveConfiguration();
   }
@@ -92,6 +108,8 @@ export class AuthManager {
     // Validate that the file exists
     try {
       await fs.access(keyFile);
+      // Reload current configuration to preserve other values
+      await this.loadConfiguration();
       this.credentials.gcpKeyFile = keyFile;
       await this.saveConfiguration();
     } catch {

@@ -13,6 +13,7 @@ interface ConfigOptions extends CLIOptions {
 export async function configCommand(options: ConfigOptions): Promise<void> {
   try {
     const authManager = new AuthManager();
+    await authManager.initialize();
 
     // Show current configuration
     if (options.show) {
