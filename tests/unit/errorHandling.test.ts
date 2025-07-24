@@ -10,7 +10,9 @@ import {
 } from '../fixtures/mockResponses.js';
 
 // Mock external dependencies
-jest.mock('../../src/services/auth/authManager.js');
+jest.mock('../../src/services/auth/authManager.js', () => ({
+  AuthManager: jest.fn()
+}));
 jest.mock('@google-cloud/logging');
 jest.mock('@google-cloud/monitoring');
 jest.mock('fs/promises');

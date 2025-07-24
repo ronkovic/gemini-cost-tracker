@@ -3,6 +3,7 @@ const { pathsToModuleNameMapper } = require('ts-jest');
 module.exports = {
   preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'node',
+  setupFilesAfterEnv: ['<rootDir>/tests/setup.ts'],
   roots: ['<rootDir>/src', '<rootDir>/tests'],
   testMatch: ['**/*.test.ts'],
   collectCoverageFrom: [
@@ -14,7 +15,8 @@ module.exports = {
   coverageReporters: ['text', 'lcov', 'html'],
   extensionsToTreatAsEsm: ['.ts'],
   moduleNameMapper: {
-    '^(\\.{1,2}/.*)\\.js$': '$1',
+    '^(\\.{1,2}/.*)\\.js$': '$1.ts',
+    '^(.+)\\.js$': '$1'
   },
   transform: {
     '^.+\\.ts$': ['ts-jest', {
@@ -25,7 +27,7 @@ module.exports = {
     }],
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(@?chalk|cli-table3|inquirer|ora|babar|cli-chart|@colors|ansi-styles)/)'
+    'node_modules/(?!(@?chalk|#ansi-styles|cli-table3|inquirer|ora|babar|cli-chart|@colors|ansi-styles)/)'
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   testTimeout: 30000,

@@ -6,7 +6,9 @@ import { CostCalculator } from '../../src/services/calculator/costCalculator.js'
 import { mockUsageData, mockConfig, mockErrorResponses } from '../fixtures/mockResponses.js';
 
 // Mock the AuthManager to avoid actual credential requirements
-jest.mock('../../src/services/auth/authManager.js');
+jest.mock('../../src/services/auth/authManager.js', () => ({
+  AuthManager: jest.fn()
+}));
 jest.mock('@google-cloud/logging');
 jest.mock('@google-cloud/monitoring');
 

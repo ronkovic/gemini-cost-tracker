@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-07-23T18:36:29.190Z",
+  "timestamp": "2025-07-24T07:11:11.123Z",
   "geminiModels": {
     "gemini-2.5-pro": {
       "inputTokenPrice": 0.00125,
@@ -196,6 +196,7 @@
       "model": "video-generation-001"
     }
   },
+  "updatedCount": 32,
   "source": {
     "gemini": "https://ai.google.dev/gemini-api/docs/models + https://ai.google.dev/gemini-api/docs/pricing",
     "vertex": "https://cloud.google.com/vertex-ai/generative-ai/pricing"
