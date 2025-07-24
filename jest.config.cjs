@@ -1,5 +1,4 @@
-const { pathsToModuleNameMapper } = require('ts-jest');
-
+// Simple Jest ESM configuration without complex module mapping
 module.exports = {
   preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'node',
@@ -14,10 +13,6 @@ module.exports = {
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
   extensionsToTreatAsEsm: ['.ts'],
-  moduleNameMapper: {
-    '^(\\.{1,2}/.*)\\.js$': '$1.ts',
-    '^(.+)\\.js$': '$1'
-  },
   transform: {
     '^.+\\.ts$': ['ts-jest', {
       useESM: true,
