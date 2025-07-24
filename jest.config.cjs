@@ -14,7 +14,7 @@ module.exports = {
   coverageReporters: ['text', 'lcov', 'html'],
   extensionsToTreatAsEsm: ['.ts'],
   moduleNameMapper: {
-    '^(\\.{1,2}/.*)\\.js$': '$1'
+    '^(\\.{1,2}/.*)\\.js$': '$1.ts'
   },
   transform: {
     '^.+\\.ts$': ['ts-jest', {
@@ -25,7 +25,7 @@ module.exports = {
     }],
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(@?chalk|#ansi-styles|cli-table3|inquirer|ora|babar|cli-chart|@colors|ansi-styles)/)'
+    'node_modules/(?!(chalk|@?chalk|#ansi-styles|cli-table3|inquirer|ora|babar|cli-chart|@colors|ansi-styles|react-is)/)'
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   testTimeout: 30000,
