@@ -263,10 +263,20 @@ interface AuthCredentials {
 }
 
 class AuthManager {
+  // 設定ファイルの保存場所（XDG Base Directory準拠）
+  // - macOS/Linux: ~/.config/gemini-cost-tracker/config.json
+  // - XDG_CONFIG_HOME設定時: $XDG_CONFIG_HOME/gemini-cost-tracker/config.json
+  // - Windows: %APPDATA%\gemini-cost-tracker\config.json
+  
   async initialize(): Promise<void>;
   async getGeminiCredentials(): Promise<string>;
   async getVertexCredentials(): Promise<GoogleAuth>;
   async validateCredentials(): Promise<boolean>;
+  
+  // 設定値の個別更新（既存値を保持）
+  async setGeminiApiKey(apiKey: string): Promise<void>;
+  async setGcpProjectId(projectId: string): Promise<void>;
+  async setGcpKeyFile(keyFile: string): Promise<void>;
 }
 ```
 
@@ -316,6 +326,8 @@ interface Formatter {
 
 class TableFormatter implements Formatter {
   // ターミナルテーブル表示
+  // Usage Details は降順表示（最新が上）
+  // v0.1.2以降: sortedDetails = [...data.details].sort((a, b) => b.date.getTime() - a.date.getTime())
 }
 
 class CSVFormatter implements Formatter {

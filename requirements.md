@@ -66,7 +66,7 @@ Google CloudのGemini APIとVertex AIで使用したトークン数とコスト�
 - プログレスバーによる進捗表示
 
 ### 互換性
-- Node.js 16.x以上のサポート
+- Node.js 20.x以上のサポート
 - Windows/Mac/Linux対応
 - ターミナルの幅に応じた表示調整
 
@@ -74,7 +74,7 @@ Google CloudのGemini APIとVertex AIで使用したトークン数とコスト�
 
 ### 開発言語・フレームワーク
 - TypeScript 5.x
-- Node.js 16.x以上
+- Node.js 20.x以上
 
 ### 主要ライブラリ
 - Commander.js（CLIフレームワーク）

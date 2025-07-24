@@ -19,26 +19,26 @@
 
 **症状:**
 ```bash
-$ gemini-cost-tracker --help
-bash: gemini-cost-tracker: command not found
+$ npx gemini-cost-tracker@latest --help
+bash: npx gemini-cost-tracker@latest: command not found
 ```
 
 **解決方法:**
 
 1. **グローバルインストールの確認:**
    ```bash
-   npm list -g gemini-cost-tracker
+   npm list -g npx gemini-cost-tracker@latest
    ```
 
 2. **再インストール:**
    ```bash
-   npm uninstall -g gemini-cost-tracker
-   npm install -g gemini-cost-tracker
+   npm uninstall -g npx gemini-cost-tracker@latest
+   npm install -g npx gemini-cost-tracker@latest
    ```
 
-3. **npx を使用:**
+3. **npx を使用（推奨）:**
    ```bash
-   npx gemini-cost-tracker@latest --help
+   npx npx gemini-cost-tracker@latest@latest --help
    ```
 
 4. **PATH の確認:**
@@ -66,7 +66,7 @@ Error: EACCES: permission denied, open '/usr/local/lib/node_modules/...'
 
 2. **sudo を使用（非推奨）:**
    ```bash
-   sudo npm install -g gemini-cost-tracker
+   sudo npm install -g npx gemini-cost-tracker@latest
    ```
 
 ## 📦 インストール関連
@@ -75,7 +75,7 @@ Error: EACCES: permission denied, open '/usr/local/lib/node_modules/...'
 
 **症状:**
 ```bash
-error gemini-cost-tracker@0.1.0: The engine "node" is incompatible with this module.
+error npx gemini-cost-tracker@latest@0.1.0: The engine "node" is incompatible with this module.
 ```
 
 **解決方法:**
@@ -111,12 +111,12 @@ npm ERR! peer dep missing: typescript@>=4.0.0
 
 2. **依存関係の強制インストール:**
    ```bash
-   npm install -g gemini-cost-tracker --force
+   npm install -g npx gemini-cost-tracker@latest --force
    ```
 
 3. **yarn を使用:**
    ```bash
-   yarn global add gemini-cost-tracker
+   yarn global add npx gemini-cost-tracker@latest
    ```
 
 ## 🔐 認証関連
@@ -143,8 +143,7 @@ Authentication failed: Invalid API key
 
 3. **設定の再実行:**
    ```bash
-   gemini-cost-tracker config --reset
-   gemini-cost-tracker config --setup
+   npx npx gemini-cost-tracker@latest@latest config
    ```
 
 ### Q: GCP 認証エラー
@@ -179,7 +178,7 @@ Error: Service account key file not found
 
 4. **認証情報の再設定:**
    ```bash
-   gemini-cost-tracker config --setup
+   npx npx gemini-cost-tracker@latest@latest config
    ```
 
 ### Q: 環境変数が認識されない
@@ -202,7 +201,7 @@ Warning: No credentials found, using mock data
    ```bash
    export GEMINI_API_KEY="your-api-key"
    export GCP_PROJECT_ID="your-project-id"
-   export GCP_KEY_FILE="/path/to/key.json"
+   export GOOGLE_APPLICATION_CREDENTIALS="/path/to/key.json"
    ```
 
 3. **永続化（.bashrc や .zshrc に追加）:**
@@ -257,7 +256,7 @@ Error: Quota exceeded
    ```bash
    # 数分待ってから再実行
    sleep 300
-   gemini-cost-tracker show --period today
+   npx npx gemini-cost-tracker@latest@latest show --period today
    ```
 
 2. **リクエスト頻度の調整:**
@@ -283,22 +282,51 @@ Total cost: $0.00
 1. **期間の確認:**
    ```bash
    # より広い期間で試行
-   gemini-cost-tracker show --period month
+   npx npx gemini-cost-tracker@latest@latest show --period month
    ```
 
 2. **プロジェクトの確認:**
    ```bash
    # プロジェクトフィルタを削除
-   gemini-cost-tracker show --period week
+   npx npx gemini-cost-tracker@latest@latest show --period week
    ```
 
 3. **実データモードの確認:**
    ```bash
    # 実データモードが有効になっているか確認
-   gemini-cost-tracker config --show
+   npx npx gemini-cost-tracker@latest@latest config --show
    ```
 
 ## ⚙️ 設定関連
+
+### Q: npx実行時の設定ファイル保存エラー
+
+**症状:**
+```bash
+$ npx npx gemini-cost-tracker@latest@latest config
+[ERROR] Unhandled promise rejection: - Context: {"reason":{"code":"AUTH_SAVE_ERROR","name":"AppError"}}
+```
+
+**解決方法:**
+
+1. **最新バージョンを使用（v0.1.1以降）:**
+   ```bash
+   npx npx gemini-cost-tracker@latest@latest config
+   ```
+
+2. **環境変数での回避（一時的）:**
+   ```bash
+   export GEMINI_API_KEY="your-api-key"
+   export GCP_PROJECT_ID="your-project-id"
+   npx npx gemini-cost-tracker@latest@latest show
+   ```
+
+3. **設定ディレクトリの権限確認:**
+   ```bash
+   ls -la ~/.config/
+   # 必要に応じて権限を修正
+   chmod 755 ~/.config/
+   ```
 
 ### Q: 設定ファイルが見つからない
 
@@ -311,35 +339,27 @@ Error: Configuration file not found
 
 1. **設定ファイルの場所確認:**
    ```bash
-   # macOS
-   ls -la ~/Library/Application\ Support/gemini-cost-tracker/
+   # macOS/Linux
+   ls -la ~/.config/npx gemini-cost-tracker@latest/
    
-   # Linux
-   ls -la ~/.config/gemini-cost-tracker/
+   # XDG_CONFIG_HOMEが設定されている場合
+   ls -la $XDG_CONFIG_HOME/npx gemini-cost-tracker@latest/
    
    # Windows
-   dir %APPDATA%\gemini-cost-tracker\
+   dir %APPDATA%\npx gemini-cost-tracker@latest\
    ```
 
 2. **設定の初期化:**
    ```bash
-   gemini-cost-tracker config --setup
+   npx npx gemini-cost-tracker@latest@latest config
    ```
 
 3. **手動での設定ファイル作成:**
    ```json
    {
-     "gemini": {
-       "apiKey": "your-api-key"
-     },
-     "gcp": {
-       "projectId": "your-project-id",
-       "keyFile": "/path/to/key.json"
-     },
-     "defaults": {
-       "currency": "USD",
-       "useRealData": false
-     }
+     "geminiApiKey": "your-api-key",
+     "gcpProjectId": "your-project-id",
+     "gcpKeyFile": "/path/to/key.json"
    }
    ```
 
@@ -356,23 +376,22 @@ Settings saved successfully
 1. **ディレクトリの権限確認:**
    ```bash
    # macOS/Linux
-   ls -la ~/Library/Application\ Support/
    ls -la ~/.config/
    ```
 
 2. **手動でディレクトリ作成:**
    ```bash
-   # macOS
-   mkdir -p ~/Library/Application\ Support/gemini-cost-tracker/
+   # macOS/Linux
+   mkdir -p ~/.config/npx gemini-cost-tracker@latest/
    
-   # Linux
-   mkdir -p ~/.config/gemini-cost-tracker/
+   # XDG_CONFIG_HOMEを使用する場合
+   mkdir -p ${XDG_CONFIG_HOME:-~/.config}/npx gemini-cost-tracker@latest/
    ```
 
 3. **権限の修正:**
    ```bash
-   chmod 755 ~/.config/gemini-cost-tracker/
-   chmod 644 ~/.config/gemini-cost-tracker/config.json
+   chmod 755 ~/.config/npx gemini-cost-tracker@latest/
+   chmod 644 ~/.config/npx gemini-cost-tracker@latest/config.json
    ```
 
 ## 📊 データ取得関連
@@ -395,7 +414,7 @@ Last updated: 2025-01-15 (2 days ago)
 
 2. **強制更新:**
    ```bash
-   gemini-cost-tracker update-pricing
+   npx gemini-cost-tracker@latest update-pricing
    ```
 
 3. **実データモードの有効化:**
@@ -416,17 +435,17 @@ Error: Invalid usage data format
 
 1. **データ検証の実行:**
    ```bash
-   gemini-cost-tracker test --verbose
+   npx gemini-cost-tracker@latest test --verbose
    ```
 
 2. **期間を狭めて再試行:**
    ```bash
-   gemini-cost-tracker show --period today
+   npx gemini-cost-tracker@latest show --period today
    ```
 
 3. **ログ出力でデバッグ:**
    ```bash
-   DEBUG=* gemini-cost-tracker show --period week
+   DEBUG=* npx gemini-cost-tracker@latest show --period week
    ```
 
 ## 📁 出力・エクスポート関連
@@ -456,7 +475,7 @@ Error: ENOENT: no such file or directory
 
 3. **絶対パスの使用:**
    ```bash
-   gemini-cost-tracker export --output /absolute/path/to/report.csv
+   npx gemini-cost-tracker@latest export --output /absolute/path/to/report.csv
    ```
 
 ### Q: 文字化け問題
@@ -499,14 +518,14 @@ Processing... (this may take a while)
 1. **期間の分割:**
    ```bash
    # 月単位で分割
-   gemini-cost-tracker show --start-date 2025-01-01 --end-date 2025-01-31
-   gemini-cost-tracker show --start-date 2025-02-01 --end-date 2025-02-28
+   npx gemini-cost-tracker@latest show --start-date 2025-01-01 --end-date 2025-01-31
+   npx gemini-cost-tracker@latest show --start-date 2025-02-01 --end-date 2025-02-28
    ```
 
 2. **フィルタの活用:**
    ```bash
    # 特定のサービスやモデルに限定
-   gemini-cost-tracker show --service gemini --model gemini-2.5-pro
+   npx gemini-cost-tracker@latest show --service gemini --model gemini-2.5-pro
    ```
 
 3. **並列処理の回避:**
@@ -527,16 +546,16 @@ FATAL ERROR: Ineffective mark-compacts near heap limit
 1. **Node.js のメモリ制限拡張:**
    ```bash
    export NODE_OPTIONS="--max-old-space-size=4096"
-   gemini-cost-tracker show --period month
+   npx npx gemini-cost-tracker@latest@latest show --period month
    ```
 
 2. **データ量の削減:**
    ```bash
    # 期間を短縮
-   gemini-cost-tracker show --period week
+   npx gemini-cost-tracker@latest show --period week
    
    # 特定のプロジェクトに限定
-   gemini-cost-tracker show --project specific-project
+   npx gemini-cost-tracker@latest show --project specific-project
    ```
 
 ## 🔧 開発環境関連
@@ -599,40 +618,40 @@ Cannot use import statement outside a module
 
 ```bash
 # 環境変数でデバッグレベル設定
-export DEBUG=gemini-cost-tracker:*
+export DEBUG=npx gemini-cost-tracker@latest:*
 export LOG_LEVEL=debug
 
 # 詳細ログ出力
-gemini-cost-tracker show --period today
+npx gemini-cost-tracker@latest show --period today
 ```
 
 ### ログファイルの場所
 
 ```bash
 # macOS
-~/Library/Logs/gemini-cost-tracker/
+~/Library/Logs/npx gemini-cost-tracker@latest/
 
 # Linux
-~/.local/share/gemini-cost-tracker/logs/
+~/.local/share/npx gemini-cost-tracker@latest/logs/
 
 # Windows
-%USERPROFILE%\AppData\Local\gemini-cost-tracker\logs\
+%USERPROFILE%\AppData\Local\npx gemini-cost-tracker@latest\logs\
 ```
 
 ### よく使用するデバッグコマンド
 
 ```bash
 # 設定情報の確認
-gemini-cost-tracker config --show
+npx gemini-cost-tracker@latest config --show
 
 # 接続テスト
-gemini-cost-tracker test --verbose
+npx gemini-cost-tracker@latest test --verbose
 
 # バージョン情報
-gemini-cost-tracker --version
+npx gemini-cost-tracker@latest --version
 
 # ヘルプ情報
-gemini-cost-tracker --help
+npx gemini-cost-tracker@latest --help
 
 # 環境情報の出力
 node --version
@@ -645,7 +664,7 @@ echo $NODE_ENV
 ### 問題が解決しない場合
 
 1. **GitHub Issues で報告:**
-   - リポジトリ: https://github.com/your-username/gemini-cost-tracker
+   - リポジトリ: https://github.com/your-username/npx gemini-cost-tracker@latest
    - 以下の情報を含めてください：
      - OS とバージョン
      - Node.js バージョン
@@ -656,12 +675,12 @@ echo $NODE_ENV
 2. **ログの収集:**
    ```bash
    # デバッグログを有効にして実行
-   DEBUG=* gemini-cost-tracker show --period today 2>&1 | tee debug.log
+   DEBUG=* npx gemini-cost-tracker@latest show --period today 2>&1 | tee debug.log
    ```
 
 3. **設定情報の収集（機密情報を除く）:**
    ```bash
-   gemini-cost-tracker config --show > config-info.txt
+   npx gemini-cost-tracker@latest config --show > config-info.txt
    ```
 
 ### バグレポートテンプレート
@@ -706,7 +725,7 @@ Error: Gemini API key not configured
 
 **新形式:**
 ```
-Error: AUTH_MISSING_GEMINI_KEY - Gemini API key not configured. Run "gemini-cost-tracker config" to set it up.
+Error: AUTH_MISSING_GEMINI_KEY - Gemini API key not configured. Run "npx gemini-cost-tracker@latest config" to set it up.
 ```
 
 ### 主なErrorCode一覧
@@ -732,7 +751,7 @@ export LOG_LEVEL=DEBUG
 export LOG_FORMAT=json
 
 # コマンド実行
-gemini-cost-tracker show --period today
+npx gemini-cost-tracker@latest show --period today
 ```
 
 **JSONログ出力例:**

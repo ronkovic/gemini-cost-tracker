@@ -15,20 +15,20 @@
 
 ```bash
 # グローバルインストール
-npm install -g gemini-cost-tracker
+npm install -g npx gemini-cost-tracker@latest
 
 # または npx での一時実行
-npx gemini-cost-tracker@latest --help
+npx npx gemini-cost-tracker@latest@latest --help
 ```
 
 ### Docker経由での使用
 
 ```bash
 # Docker Hub からプル
-docker pull your-username/gemini-cost-tracker
+docker pull your-username/npx gemini-cost-tracker@latest
 
 # 実行
-docker run --rm -v ~/.config/gemini-cost-tracker:/app/.config gemini-cost-tracker --help
+docker run --rm -v ~/.config/npx gemini-cost-tracker@latest:/app/.config npx gemini-cost-tracker@latest --help
 ```
 
 ## ⚙️ 初期設定
@@ -38,7 +38,7 @@ docker run --rm -v ~/.config/gemini-cost-tracker:/app/.config gemini-cost-tracke
 最初に認証情報を設定する必要があります：
 
 ```bash
-gemini-cost-tracker config --setup
+npx gemini-cost-tracker@latest config --setup
 ```
 
 このコマンドを実行すると、以下の情報の入力を求められます：
@@ -50,13 +50,13 @@ gemini-cost-tracker config --setup
 ### 2. 設定の確認
 
 ```bash
-gemini-cost-tracker config --show
+npx gemini-cost-tracker@latest config --show
 ```
 
 ### 3. 接続テスト
 
 ```bash
-gemini-cost-tracker test
+npx npx gemini-cost-tracker@latest@latest test
 ```
 
 ## 📖 基本的な使用方法
@@ -65,23 +65,23 @@ gemini-cost-tracker test
 
 ```bash
 # 今日の使用量とコストを表示
-gemini-cost-tracker show --period today
+npx gemini-cost-tracker@latest show --period today
 
 # 過去7日間の使用量を表示
-gemini-cost-tracker show --period week
+npx gemini-cost-tracker@latest show --period week
 
 # 特定の期間を指定
-gemini-cost-tracker show --period custom --start-date 2025-01-01 --end-date 2025-01-15
+npx gemini-cost-tracker@latest show --period custom --start-date 2025-01-01 --end-date 2025-01-15
 ```
 
 ### データのエクスポート
 
 ```bash
 # JSON形式でエクスポート
-gemini-cost-tracker export --format json --output usage-report.json
+npx gemini-cost-tracker@latest export --format json --output usage-report.json
 
 # CSV形式でエクスポート
-gemini-cost-tracker export --format csv --output usage-report.csv
+npx gemini-cost-tracker@latest export --format csv --output usage-report.csv
 ```
 
 ## 📚 コマンドリファレンス
@@ -89,7 +89,7 @@ gemini-cost-tracker export --format csv --output usage-report.csv
 ### `show` - 使用量とコストの表示
 
 ```bash
-gemini-cost-tracker show [options]
+npx gemini-cost-tracker@latest show [options]
 ```
 
 **オプション:**
@@ -105,19 +105,19 @@ gemini-cost-tracker show [options]
 **使用例:**
 ```bash
 # 今週のGeminiの使用量を表示
-gemini-cost-tracker show --period week --service gemini
+npx gemini-cost-tracker@latest show --period week --service gemini
 
 # 特定のモデルの使用量をJSONで表示
-gemini-cost-tracker show --model gemini-2.5-pro --format json
+npx gemini-cost-tracker@latest show --model gemini-2.5-pro --format json
 
 # 特定のプロジェクトの月次レポートをチャート形式で表示
-gemini-cost-tracker show --period month --project my-project --format chart
+npx gemini-cost-tracker@latest show --period month --project my-project --format chart
 ```
 
 ### `export` - データのエクスポート
 
 ```bash
-gemini-cost-tracker export [options]
+npx gemini-cost-tracker@latest export [options]
 ```
 
 **オプション:**
@@ -128,27 +128,28 @@ gemini-cost-tracker export [options]
 **使用例:**
 ```bash
 # 月次レポートをCSVでエクスポート
-gemini-cost-tracker export --period month --format csv --output monthly-report.csv
+npx gemini-cost-tracker@latest export --period month --format csv --output monthly-report.csv
 
 # 特定期間のJSONレポートをエクスポート
-gemini-cost-tracker export --start-date 2025-01-01 --end-date 2025-01-31 --format json --output january-report.json
+npx gemini-cost-tracker@latest export --start-date 2025-01-01 --end-date 2025-01-31 --format json --output january-report.json
 ```
 
 ### `config` - 設定管理
 
 ```bash
-gemini-cost-tracker config [options]
+npx npx gemini-cost-tracker@latest@latest config [options]
 ```
 
 **オプション:**
-- `--setup`: 初期設定を行う
 - `--show`: 現在の設定を表示
-- `--reset`: 設定をリセット
+- `--set-gemini-key <key>`: Gemini APIキーを設定
+- `--set-project <project>`: GCPプロジェクトIDを設定
+- `--set-key-file <file>`: サービスアカウントキーファイルを設定
 
 ### `test` - 接続テスト
 
 ```bash
-gemini-cost-tracker test [options]
+npx npx gemini-cost-tracker@latest@latest test [options]
 ```
 
 **オプション:**
@@ -157,7 +158,7 @@ gemini-cost-tracker test [options]
 ### `update-pricing` - 価格情報の更新
 
 ```bash
-gemini-cost-tracker update-pricing [options]
+npx npx gemini-cost-tracker@latest@latest update-pricing [options]
 ```
 
 **オプション:**
@@ -170,25 +171,17 @@ gemini-cost-tracker update-pricing [options]
 ### 設定ファイルの場所
 
 設定ファイルは以下の場所に保存されます：
-- **macOS**: `~/Library/Application Support/gemini-cost-tracker/config.json`
-- **Linux**: `~/.config/gemini-cost-tracker/config.json`
-- **Windows**: `%APPDATA%\\gemini-cost-tracker\\config.json`
+- **macOS/Linux**: `~/.config/npx gemini-cost-tracker@latest/config.json`
+- **XDG_CONFIG_HOMEが設定されている場合**: `$XDG_CONFIG_HOME/npx gemini-cost-tracker@latest/config.json`
+- **Windows**: `%APPDATA%\\npx gemini-cost-tracker@latest\\config.json`
 
 ### 設定項目
 
 ```json
 {
-  "gemini": {
-    "apiKey": "your-gemini-api-key"
-  },
-  "gcp": {
-    "projectId": "your-gcp-project-id",
-    "keyFile": "/path/to/service-account-key.json"
-  },
-  "defaults": {
-    "currency": "USD",
-    "useRealData": false
-  }
+  "geminiApiKey": "your-gemini-api-key",
+  "gcpProjectId": "your-gcp-project-id",
+  "gcpKeyFile": "/path/to/service-account-key.json"
 }
 ```
 
@@ -209,22 +202,30 @@ export GEMINI_COST_USE_REAL_DATA="true"
 ### Table形式（デフォルト）
 
 ```
-📊 Cost Report (2025-01-01 to 2025-01-31)
+📊 Cost Report
+Period: 2025-01-01 to 2025-01-31
 
 📈 Summary
-┌─────────────────────┬──────────┐
-│ Total Input Tokens  │ 125,000  │
-│ Total Output Tokens │ 85,000   │
-│ Total Cost          │ $15.50   │
-└─────────────────────┴──────────┘
+┌─────────────────────┬────────────┐
+│ Metric              │ Value      │
+├─────────────────────┼────────────┤
+│ Total Input Tokens  │ 125,000    │
+├─────────────────────┼────────────┤
+│ Total Output Tokens │ 85,000     │
+├─────────────────────┼────────────┤
+│ Total Tokens        │ 210,000    │
+├─────────────────────┼────────────┤
+│ Total Cost          │ 15.50 USD  │
+└─────────────────────┴────────────┘
 
-🔧 Service Breakdown
-┌────────────┬─────────────┬─────────────┬───────────┐
-│ Service    │ Input       │ Output      │ Cost      │
-├────────────┼─────────────┼─────────────┼───────────┤
-│ gemini     │ 75,000      │ 50,000      │ $9.25     │
-│ vertex-ai  │ 50,000      │ 35,000      │ $6.25     │
-└────────────┴─────────────┴─────────────┴───────────┘
+📋 Usage Details (降順: 最新が上)
+┌────────────┬────────────┬──────────────┬───────────────┬───────────────┬────────────┐
+│ Date       │ Service    │ Model        │ Input Tokens  │ Output Tokens │ Cost       │
+├────────────┼────────────┼──────────────┼───────────────┼───────────────┼────────────┤
+│ 2025-01-31 │ gemini     │ gemini-pro   │ 5,000         │ 3,000         │ 1.25 USD   │
+├────────────┼────────────┼──────────────┼───────────────┼───────────────┼────────────┤
+│ 2025-01-30 │ vertex-ai  │ text-bison   │ 4,000         │ 2,500         │ 1.10 USD   │
+└────────────┴────────────┴──────────────┴───────────────┴───────────────┴────────────┘
 ```
 
 ### JSON形式
@@ -298,56 +299,56 @@ Date,Service,Model,Usage ID,Input Tokens,Output Tokens,Total Tokens,Input Cost,O
 
 ```bash
 # 1. 先月の全体的な使用量を確認
-gemini-cost-tracker show --period month --format table
+npx npx gemini-cost-tracker@latest@latest show --period month --format table
 
 # 2. サービス別の詳細分析
-gemini-cost-tracker show --period month --service gemini --format json > gemini-monthly.json
-gemini-cost-tracker show --period month --service vertex-ai --format json > vertex-monthly.json
+npx npx gemini-cost-tracker@latest@latest show --period month --service gemini --format json > gemini-monthly.json
+npx npx gemini-cost-tracker@latest@latest show --period month --service vertex-ai --format json > vertex-monthly.json
 
 # 3. CSVでエクスポートして詳細分析
-gemini-cost-tracker export --period month --format csv --output monthly-detailed.csv
+npx gemini-cost-tracker@latest export --period month --format csv --output monthly-detailed.csv
 ```
 
 ### シナリオ2: プロジェクト別コスト追跡
 
 ```bash
 # 特定のプロジェクトの使用量を追跡
-gemini-cost-tracker show --project production-app --period week --format chart
+npx gemini-cost-tracker@latest show --project production-app --period week --format chart
 
 # 複数プロジェクトの比較用にデータエクスポート
-gemini-cost-tracker export --project production-app --format csv --output production-costs.csv
-gemini-cost-tracker export --project staging-app --format csv --output staging-costs.csv
+npx gemini-cost-tracker@latest export --project production-app --format csv --output production-costs.csv
+npx gemini-cost-tracker@latest export --project staging-app --format csv --output staging-costs.csv
 ```
 
 ### シナリオ3: モデル別パフォーマンス分析
 
 ```bash
 # モデル別の使用量比較
-gemini-cost-tracker show --model gemini-2.5-pro --period month --format json
-gemini-cost-tracker show --model gemini-2.5-flash --period month --format json
+npx gemini-cost-tracker@latest show --model gemini-2.5-pro --period month --format json
+npx gemini-cost-tracker@latest show --model gemini-2.5-flash --period month --format json
 
 # コスト効率の比較レポート生成
-gemini-cost-tracker export --period month --format csv --output model-comparison.csv
+npx gemini-cost-tracker@latest export --period month --format csv --output model-comparison.csv
 ```
 
 ### シナリオ4: リアルタイム監視
 
 ```bash
 # 今日の使用量を定期的にチェック
-gemini-cost-tracker show --period today --format table
+npx gemini-cost-tracker@latest show --period today --format table
 
 # 閾値監視のためのJSON出力
-gemini-cost-tracker show --period today --format json | jq '.summary.totalCost'
+npx gemini-cost-tracker@latest show --period today --format json | jq '.summary.totalCost'
 ```
 
 ### シナリオ5: 価格情報の管理
 
 ```bash
 # 最新の価格情報に更新
-gemini-cost-tracker update-pricing
+npx gemini-cost-tracker@latest update-pricing
 
 # 価格変更の影響分析
-gemini-cost-tracker update-pricing --report --output pricing-comparison.md
+npx gemini-cost-tracker@latest update-pricing --report --output pricing-comparison.md
 ```
 
 ## 💡 ベストプラクティス
@@ -356,10 +357,10 @@ gemini-cost-tracker update-pricing --report --output pricing-comparison.md
 
 ```bash
 # 毎日の使用量チェック
-gemini-cost-tracker show --period today
+npx gemini-cost-tracker@latest show --period today
 
 # 週次レポートの生成
-gemini-cost-tracker export --period week --format csv --output "weekly-$(date +%Y%m%d).csv"
+npx gemini-cost-tracker@latest export --period week --format csv --output "weekly-$(date +%Y%m%d).csv"
 ```
 
 ### 2. アラート設定
@@ -368,7 +369,7 @@ gemini-cost-tracker export --period week --format csv --output "weekly-$(date +%
 
 ```bash
 #!/bin/bash
-COST=$(gemini-cost-tracker show --period today --format json | jq '.summary.totalCost')
+COST=$(npx gemini-cost-tracker@latest show --period today --format json | jq '.summary.totalCost')
 THRESHOLD=50.0
 
 if (( $(echo "$COST > $THRESHOLD" | bc -l) )); then
@@ -381,7 +382,7 @@ fi
 
 ```bash
 # 月次データの自動バックアップ
-gemini-cost-tracker export --period month --format json --output "backup/$(date +%Y-%m)-backup.json"
+npx gemini-cost-tracker@latest export --period month --format json --output "backup/$(date +%Y-%m)-backup.json"
 ```
 
 ## 🔧 トラブルシューティング
