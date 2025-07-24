@@ -2,6 +2,9 @@
 module.exports = {
   preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'node',
+  testEnvironmentOptions: {
+    NODE_ENV: 'test',
+  },
   setupFilesAfterEnv: ['<rootDir>/tests/setup.ts'],
   roots: ['<rootDir>/src', '<rootDir>/tests'],
   testMatch: ['**/*.test.ts'],
@@ -13,9 +16,7 @@ module.exports = {
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
   extensionsToTreatAsEsm: ['.ts'],
-  moduleNameMapper: {
-    '^(\\.{1,2}/.*)\\.js$': '$1.ts'
-  },
+  moduleNameMapper: {},
   transform: {
     '^.+\\.ts$': ['ts-jest', {
       useESM: true,
