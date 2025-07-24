@@ -68,14 +68,14 @@ export class AuthManager {
     try {
       // Ensure config directory exists before writing
       await fs.mkdir(this.configDir, { recursive: true });
-      
+
       const configData = JSON.stringify(this.credentials, null, 2);
       await fs.writeFile(this.configFile, configData, 'utf8');
     } catch (error) {
       // Provide more detailed error information
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
       const errorCode = error instanceof Error && 'code' in error ? (error as any).code : 'UNKNOWN';
-      
+
       throw new AppError(
         ErrorCode.AUTH_SAVE_ERROR,
         `Failed to save configuration to ${this.configFile}: ${errorMessage} (code: ${errorCode})`
