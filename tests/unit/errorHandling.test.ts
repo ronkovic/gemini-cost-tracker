@@ -2,7 +2,6 @@ import { AppError } from '../../src/types/index.js';
 import { validateDateRange } from '../../src/utils/validator.js';
 import { CostCalculator } from '../../src/services/calculator/costCalculator.js';
 import { PriceUpdater } from '../../src/services/calculator/priceUpdater.js';
-import { AuthManager } from '../../src/services/auth/authManager.js';
 import { 
   mockErrorResponses, 
   mockConfig, 
@@ -10,12 +9,15 @@ import {
 } from '../fixtures/mockResponses.js';
 
 // Mock external dependencies
-jest.mock('../../src/services/auth/authManager.js', () => ({
-  AuthManager: jest.fn()
-}));
 jest.mock('@google-cloud/logging');
 jest.mock('@google-cloud/monitoring');
-jest.mock('fs/promises');
+
+// Create manual mock for AuthManager
+const AuthManager = jest.fn().mockImplementation(() => ({
+  initialize: jest.fn(),
+  getCredentials: jest.fn(),
+  getProjectId: jest.fn().mockResolvedValue('test-project')
+}));
 
 describe('Error Handling Tests', () => {
   describe('AppError Class', () => {
@@ -166,7 +168,7 @@ describe('Error Handling Tests', () => {
   });
 
   describe('Authentication Error Handling', () => {
-    let mockAuthManager: jest.Mocked<AuthManager>;
+    let mockAuthManager: any;
 
     beforeEach(() => {
       mockAuthManager = {
@@ -217,7 +219,7 @@ describe('Error Handling Tests', () => {
 
   describe('Price Updater Error Handling', () => {
     let priceUpdater: PriceUpdater;
-    let mockAuthManager: jest.Mocked<AuthManager>;
+    let mockAuthManager: any;
 
     beforeEach(() => {
       mockAuthManager = {
@@ -251,12 +253,14 @@ describe('Error Handling Tests', () => {
     });
 
     it('should handle file system errors when caching', async () => {
-      const fs = require('fs/promises');
-      fs.writeFileP = jest.fn().mockRejectedValue(new Error('EACCES: permission denied'));
+      // Mock the cachePricingData method to simulate file system error
+      jest.spyOn(priceUpdater as any, 'cachePricingData')
+        .mockRejectedValue(new Error('EACCES: permission denied'));
 
       // Should still return pricing data even if caching fails
       const result = await priceUpdater.updatePricing();
       expect(result).toBeDefined();
+      expect(result.updatedCount).toBeGreaterThan(0);
     });
   });
 

@@ -1,0 +1,397 @@
+{
+  "period": {
+    "start": "2025-06-23T15:00:00.000Z",
+    "end": "2025-07-24T14:59:59.999Z"
+  },
+  "summary": {
+    "totalInputTokens": 89658,
+    "totalOutputTokens": 36050,
+    "totalTokens": 125708,
+    "totalCost": 0.065494375,
+    "currency": "USD"
+  },
+  "details": [
+    {
+      "date": "2025-07-02T15:00:00.000Z",
+      "service": "gemini",
+      "model": "gemini-pro",
+      "usage": {
+        "id": "gemini-2025-07-02-9",
+        "timestamp": "2025-07-02T15:00:00.000Z",
+        "inputTokens": 1876,
+        "outputTokens": 1793,
+        "totalTokens": 3669,
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.00023449999999999998,
+        "outputCost": 0.000672375,
+        "totalCost": 0.000906875,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    },
+    {
+      "date": "2025-07-01T15:00:00.000Z",
+      "service": "gemini",
+      "model": "gemini-pro",
+      "usage": {
+        "id": "gemini-2025-07-01-8",
+        "timestamp": "2025-07-01T15:00:00.000Z",
+        "inputTokens": 4861,
+        "outputTokens": 1726,
+        "totalTokens": 6587,
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.000607625,
+        "outputCost": 0.00064725,
+        "totalCost": 0.001254875,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    },
+    {
+      "date": "2025-06-30T15:00:00.000Z",
+      "service": "gemini",
+      "model": "gemini-pro",
+      "usage": {
+        "id": "gemini-2025-06-30-7",
+        "timestamp": "2025-06-30T15:00:00.000Z",
+        "inputTokens": 4661,
+        "outputTokens": 1197,
+        "totalTokens": 5858,
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.0005826249999999999,
+        "outputCost": 0.00044887500000000006,
+        "totalCost": 0.0010314999999999999,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    },
+    {
+      "date": "2025-06-30T15:00:00.000Z",
+      "service": "vertex-ai",
+      "model": "chat-bison-001",
+      "usage": {
+        "id": "vertex-2025-06-30-7",
+        "timestamp": "2025-06-30T15:00:00.000Z",
+        "inputTokens": 7282,
+        "outputTokens": 537,
+        "totalTokens": 7819,
+        "project": "ca-cs-t-kazuki-sandbox",
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.007282,
+        "outputCost": 0.000537,
+        "totalCost": 0.007819,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.191Z"
+      }
+    },
+    {
+      "date": "2025-06-29T15:00:00.000Z",
+      "service": "gemini",
+      "model": "gemini-pro",
+      "usage": {
+        "id": "gemini-2025-06-29-6",
+        "timestamp": "2025-06-29T15:00:00.000Z",
+        "inputTokens": 8413,
+        "outputTokens": 1937,
+        "totalTokens": 10350,
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.001051625,
+        "outputCost": 0.000726375,
+        "totalCost": 0.001778,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    },
+    {
+      "date": "2025-06-29T15:00:00.000Z",
+      "service": "vertex-ai",
+      "model": "text-bison-001",
+      "usage": {
+        "id": "vertex-2025-06-29-6",
+        "timestamp": "2025-06-29T15:00:00.000Z",
+        "inputTokens": 2839,
+        "outputTokens": 427,
+        "totalTokens": 3266,
+        "project": "ca-cs-t-kazuki-sandbox",
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.002839,
+        "outputCost": 0.000427,
+        "totalCost": 0.003266,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.191Z"
+      }
+    },
+    {
+      "date": "2025-06-28T15:00:00.000Z",
+      "service": "gemini",
+      "model": "gemini-pro",
+      "usage": {
+        "id": "gemini-2025-06-28-5",
+        "timestamp": "2025-06-28T15:00:00.000Z",
+        "inputTokens": 3822,
+        "outputTokens": 5094,
+        "totalTokens": 8916,
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.00047775000000000004,
+        "outputCost": 0.00191025,
+        "totalCost": 0.002388,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    },
+    {
+      "date": "2025-06-28T15:00:00.000Z",
+      "service": "vertex-ai",
+      "model": "code-bison-001",
+      "usage": {
+        "id": "vertex-2025-06-28-5",
+        "timestamp": "2025-06-28T15:00:00.000Z",
+        "inputTokens": 7628,
+        "outputTokens": 2215,
+        "totalTokens": 9843,
+        "project": "ca-cs-t-kazuki-sandbox",
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.007628,
+        "outputCost": 0.002215,
+        "totalCost": 0.009843000000000001,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.191Z"
+      }
+    },
+    {
+      "date": "2025-06-27T15:00:00.000Z",
+      "service": "gemini",
+      "model": "gemini-pro",
+      "usage": {
+        "id": "gemini-2025-06-27-4",
+        "timestamp": "2025-06-27T15:00:00.000Z",
+        "inputTokens": 2373,
+        "outputTokens": 3672,
+        "totalTokens": 6045,
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.000296625,
+        "outputCost": 0.0013770000000000002,
+        "totalCost": 0.0016736250000000002,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    },
+    {
+      "date": "2025-06-27T15:00:00.000Z",
+      "service": "vertex-ai",
+      "model": "chat-bison-001",
+      "usage": {
+        "id": "vertex-2025-06-27-4",
+        "timestamp": "2025-06-27T15:00:00.000Z",
+        "inputTokens": 5766,
+        "outputTokens": 1989,
+        "totalTokens": 7755,
+        "project": "ca-cs-t-kazuki-sandbox",
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.005766,
+        "outputCost": 0.0019890000000000003,
+        "totalCost": 0.007755000000000001,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    },
+    {
+      "date": "2025-06-26T15:00:00.000Z",
+      "service": "gemini",
+      "model": "gemini-pro",
+      "usage": {
+        "id": "gemini-2025-06-26-3",
+        "timestamp": "2025-06-26T15:00:00.000Z",
+        "inputTokens": 10872,
+        "outputTokens": 5234,
+        "totalTokens": 16106,
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.001359,
+        "outputCost": 0.00196275,
+        "totalCost": 0.00332175,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    },
+    {
+      "date": "2025-06-26T15:00:00.000Z",
+      "service": "vertex-ai",
+      "model": "text-bison-001",
+      "usage": {
+        "id": "vertex-2025-06-26-3",
+        "timestamp": "2025-06-26T15:00:00.000Z",
+        "inputTokens": 1443,
+        "outputTokens": 4002,
+        "totalTokens": 5445,
+        "project": "ca-cs-t-kazuki-sandbox",
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.001443,
+        "outputCost": 0.0040019999999999995,
+        "totalCost": 0.005444999999999999,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    },
+    {
+      "date": "2025-06-25T15:00:00.000Z",
+      "service": "gemini",
+      "model": "gemini-pro",
+      "usage": {
+        "id": "gemini-2025-06-25-2",
+        "timestamp": "2025-06-25T15:00:00.000Z",
+        "inputTokens": 2979,
+        "outputTokens": 563,
+        "totalTokens": 3542,
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.00037237500000000004,
+        "outputCost": 0.000211125,
+        "totalCost": 0.0005835,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    },
+    {
+      "date": "2025-06-25T15:00:00.000Z",
+      "service": "vertex-ai",
+      "model": "code-bison-001",
+      "usage": {
+        "id": "vertex-2025-06-25-2",
+        "timestamp": "2025-06-25T15:00:00.000Z",
+        "inputTokens": 3903,
+        "outputTokens": 1056,
+        "totalTokens": 4959,
+        "project": "ca-cs-t-kazuki-sandbox",
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.0039030000000000002,
+        "outputCost": 0.001056,
+        "totalCost": 0.004959,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    },
+    {
+      "date": "2025-06-24T15:00:00.000Z",
+      "service": "gemini",
+      "model": "gemini-pro",
+      "usage": {
+        "id": "gemini-2025-06-24-1",
+        "timestamp": "2025-06-24T15:00:00.000Z",
+        "inputTokens": 4993,
+        "outputTokens": 2019,
+        "totalTokens": 7012,
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.000624125,
+        "outputCost": 0.0007571250000000001,
+        "totalCost": 0.00138125,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    },
+    {
+      "date": "2025-06-24T15:00:00.000Z",
+      "service": "vertex-ai",
+      "model": "chat-bison-001",
+      "usage": {
+        "id": "vertex-2025-06-24-1",
+        "timestamp": "2025-06-24T15:00:00.000Z",
+        "inputTokens": 8170,
+        "outputTokens": 803,
+        "totalTokens": 8973,
+        "project": "ca-cs-t-kazuki-sandbox",
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.00817,
+        "outputCost": 0.0008030000000000001,
+        "totalCost": 0.008973,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    },
+    {
+      "date": "2025-06-23T15:00:00.000Z",
+      "service": "gemini",
+      "model": "gemini-pro",
+      "usage": {
+        "id": "gemini-2025-06-23-0",
+        "timestamp": "2025-06-23T15:00:00.000Z",
+        "inputTokens": 6832,
+        "outputTokens": 752,
+        "totalTokens": 7584,
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.000854,
+        "outputCost": 0.000282,
+        "totalCost": 0.001136,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    },
+    {
+      "date": "2025-06-23T15:00:00.000Z",
+      "service": "vertex-ai",
+      "model": "text-bison-001",
+      "usage": {
+        "id": "vertex-2025-06-23-0",
+        "timestamp": "2025-06-23T15:00:00.000Z",
+        "inputTokens": 945,
+        "outputTokens": 1034,
+        "totalTokens": 1979,
+        "project": "ca-cs-t-kazuki-sandbox",
+        "region": "us-central1"
+      },
+      "cost": {
+        "inputCost": 0.000945,
+        "outputCost": 0.001034,
+        "totalCost": 0.001979,
+        "currency": "USD",
+        "calculatedAt": "2025-07-24T09:35:45.190Z"
+      }
+    }
+  ],
+  "metadata": {
+    "generatedAt": "2025-07-24T09:35:45.191Z",
+    "recordCount": 18,
+    "services": [
+      "gemini",
+      "vertex-ai"
+    ],
+    "models": [
+      "chat-bison-001",
+      "code-bison-001",
+      "gemini-pro",
+      "text-bison-001"
+    ]
+  }
+}
