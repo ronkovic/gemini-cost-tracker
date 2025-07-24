@@ -16,7 +16,9 @@ module.exports = {
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
   extensionsToTreatAsEsm: ['.ts'],
-  moduleNameMapper: {},
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.(js|mjs)$': '$1',
+  },
   transform: {
     '^.+\\.ts$': ['ts-jest', {
       useESM: true,
