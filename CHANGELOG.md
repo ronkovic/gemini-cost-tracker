@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2025-01-24
+
+### Fixed
+- Table display now shows usage details in descending order (newest first)
+- Consistent date ordering across all output formats
+
 ## [0.1.1] - 2025-01-24
 
 ### Fixed

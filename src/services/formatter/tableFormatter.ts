@@ -53,8 +53,9 @@ export class TableFormatter implements Formatter {
         colWidths: [12, 12, 20, 15, 15, 12],
       });
 
-      // Show up to 20 most recent entries
-      const recentDetails = data.details.slice(0, 20);
+      // Show up to 20 most recent entries (sorted by date descending)
+      const sortedDetails = [...data.details].sort((a, b) => b.date.getTime() - a.date.getTime());
+      const recentDetails = sortedDetails.slice(0, 20);
 
       for (const detail of recentDetails) {
         const serviceColor = detail.service === 'gemini' ? chalk.green : chalk.blue;

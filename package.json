@@ -1,6 +1,6 @@
 {
   "name": "gemini-cost-tracker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "CLI tool to display token usage and costs for Gemini and Vertex AI",
   "main": "dist/index.js",
   "bin": {

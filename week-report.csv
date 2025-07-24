@@ -1,0 +1,17 @@
+Date,Service,Model,Usage ID,Input Tokens,Output Tokens,Total Tokens,Input Cost,Output Cost,Total Cost,Currency,Project,Region,Calculated At
+2025-07-23 15:00:00,gemini,gemini-pro,gemini-2025-07-23-7,5351,2734,8085,0.000669,0.001025,0.001694,USD,,us-central1,2025-07-24 10:52:20
+2025-07-23 15:00:00,vertex-ai,chat-bison-001,vertex-2025-07-23-7,8321,3603,11924,0.008321,0.003603,0.011924,USD,ca-cs-t-kazuki-sandbox,us-central1,2025-07-24 10:52:20
+2025-07-22 15:00:00,gemini,gemini-pro,gemini-2025-07-22-6,10560,2694,13254,0.001320,0.001010,0.002330,USD,,us-central1,2025-07-24 10:52:20
+2025-07-22 15:00:00,vertex-ai,text-bison-001,vertex-2025-07-22-6,7046,1700,8746,0.007046,0.001700,0.008746,USD,ca-cs-t-kazuki-sandbox,us-central1,2025-07-24 10:52:20
+2025-07-21 15:00:00,gemini,gemini-pro,gemini-2025-07-21-5,8222,1694,9916,0.001028,0.000635,0.001663,USD,,us-central1,2025-07-24 10:52:20
+2025-07-21 15:00:00,vertex-ai,code-bison-001,vertex-2025-07-21-5,3564,2279,5843,0.003564,0.002279,0.005843,USD,ca-cs-t-kazuki-sandbox,us-central1,2025-07-24 10:52:20
+2025-07-20 15:00:00,gemini,gemini-pro,gemini-2025-07-20-4,4900,3773,8673,0.000613,0.001415,0.002027,USD,,us-central1,2025-07-24 10:52:20
+2025-07-20 15:00:00,vertex-ai,chat-bison-001,vertex-2025-07-20-4,5730,2833,8563,0.005730,0.002833,0.008563,USD,ca-cs-t-kazuki-sandbox,us-central1,2025-07-24 10:52:20
+2025-07-19 15:00:00,gemini,gemini-pro,gemini-2025-07-19-3,9097,2402,11499,0.001137,0.000901,0.002038,USD,,us-central1,2025-07-24 10:52:20
+2025-07-19 15:00:00,vertex-ai,text-bison-001,vertex-2025-07-19-3,6378,1851,8229,0.006378,0.001851,0.008229,USD,ca-cs-t-kazuki-sandbox,us-central1,2025-07-24 10:52:20
+2025-07-18 15:00:00,gemini,gemini-pro,gemini-2025-07-18-2,2701,3403,6104,0.000338,0.001276,0.001614,USD,,us-central1,2025-07-24 10:52:20
+2025-07-18 15:00:00,vertex-ai,code-bison-001,vertex-2025-07-18-2,2088,2386,4474,0.002088,0.002386,0.004474,USD,ca-cs-t-kazuki-sandbox,us-central1,2025-07-24 10:52:20
+2025-07-17 15:00:00,gemini,gemini-pro,gemini-2025-07-17-1,10633,1226,11859,0.001329,0.000460,0.001789,USD,,us-central1,2025-07-24 10:52:20
+2025-07-17 15:00:00,vertex-ai,chat-bison-001,vertex-2025-07-17-1,4631,2739,7370,0.004631,0.002739,0.007370,USD,ca-cs-t-kazuki-sandbox,us-central1,2025-07-24 10:52:20
+2025-07-16 15:00:00,gemini,gemini-pro,gemini-2025-07-16-0,2275,1215,3490,0.000284,0.000456,0.000740,USD,,us-central1,2025-07-24 10:52:20
+2025-07-16 15:00:00,vertex-ai,text-bison-001,vertex-2025-07-16-0,7989,625,8614,0.007989,0.000625,0.008614,USD,ca-cs-t-kazuki-sandbox,us-central1,2025-07-24 10:52:20
