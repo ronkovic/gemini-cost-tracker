@@ -1,4 +1,4 @@
-// Simple Jest ESM configuration without complex module mapping
+// Jest ESM configuration optimized for GitHub Actions
 module.exports = {
   preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'node',
@@ -13,6 +13,9 @@ module.exports = {
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
   extensionsToTreatAsEsm: ['.ts'],
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)$': '$1'
+  },
   transform: {
     '^.+\\.ts$': ['ts-jest', {
       useESM: true,
