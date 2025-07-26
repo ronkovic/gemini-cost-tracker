@@ -280,12 +280,22 @@ npm run format   # フォーマット
 
 ## 📚 ドキュメント
 
-詳細な使用方法やトラブルシューティングについては、以下のドキュメントを参照してください：
+### 🔧 開発者・保守者向け
+- **[プロジェクトアーキテクチャ](./PROJECT_ARCHITECTURE_KNOWLEDGE.md)** - 技術スタック、設計思想、構築方法
+- **[トラブルシューティングガイド](./TROUBLESHOOTING_GUIDE.md)** - エラー対応、デバッグ手順
+- **[開発ナレッジベース](./knowledge-base.md)** - 開発過程で得られた知識とベストプラクティス
+- **[法的履歴](./LEGAL_HISTORY.md)** - ライセンス変更履歴と法的情報
+- **[貢献ガイドライン](./CONTRIBUTING.md)** - プロジェクトへの貢献方法
 
+### 📖 ユーザー向け
 - **[使用方法ガイド](./docs/usage.md)** - 詳細な使用方法と実用例
 - **[APIリファレンス](./docs/api-reference.md)** - プログラマティックな使用方法
 - **[トラブルシューティング](./docs/troubleshooting.md)** - よくある問題と解決方法
-- **[貢献ガイドライン](./CONTRIBUTING.md)** - プロジェクトへの貢献方法
+
+### 🤖 Claude Code継承用
+新しいClaude Codeセッションでプロジェクトを継続する際は、以下のファイルを参照してください：
+- `PROJECT_ARCHITECTURE_KNOWLEDGE.md` - プロジェクト全体の理解
+- `TROUBLESHOOTING_GUIDE.md` - 問題解決のノウハウ
 
 ## 🤝 貢献
 
