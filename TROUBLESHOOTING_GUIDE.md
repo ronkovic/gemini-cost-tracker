@@ -449,6 +449,150 @@ docker run -v ~/.config:/home/node/.config node:20 npx gemini-cost-tracker@lates
 
 ---
 
+## GitHub Actions CI/CD エラー
+
+### 💥 エラー: CI lint ジョブ失敗 (Prettier フォーマットエラー)
+
+**発生状況:**
+- GitHub Actions の CI パイプラインで lint ジョブが失敗
+- Prettier コードフォーマットチェックでエラー
+- ローカルでは問題なくてもCI環境で検出される場合
+
+**症状:**
+```bash
+lint	Check code formatting	[warn] src/utils/logger.ts
+lint	Check code formatting	[warn] Code style issues found in the above file. Run Prettier with --write to fix.
+lint	Check code formatting	##[error]Process completed with exit code 1.
+```
+
+**GitHub Actions ワークフロー構成:**
+```yaml
+# .github/workflows/ci.yml
+jobs:
+  lint:
+    - name: Check code formatting
+      run: npx prettier --check "src/**/*.ts"
+```
+
+**調査手順:**
+
+1. **CI ログの確認**
+   ```bash
+   # 最新のCI実行状況確認
+   gh run list --workflow=ci.yml --limit=5
+   
+   # 失敗したランのログ詳細確認
+   gh run view <RUN_ID> --log-failed
+   ```
+
+2. **ローカルでの再現確認**
+   ```bash
+   # 問題のあるファイルの特定
+   npx prettier --check "src/**/*.ts"
+   
+   # 特定ファイルの確認
+   npx prettier --check src/utils/logger.ts
+   ```
+
+**解決手順:**
+
+1. **フォーマット修正**
+   ```bash
+   # 特定ファイルの修正
+   npx prettier --write src/utils/logger.ts
+   
+   # 全ファイルの一括修正（必要に応じて）
+   npx prettier --write "src/**/*.ts"
+   ```
+
+2. **修正確認**
+   ```bash
+   # 全ファイルのフォーマットチェック
+   npx prettier --check "src/**/*.ts"
+   # 期待される出力: "All matched files use Prettier code style!"
+   ```
+
+3. **修正のコミット・プッシュ**
+   ```bash
+   git add .
+   git commit -m "style: fix Prettier formatting in logger.ts"
+   git push origin main
+   ```
+
+4. **CI成功確認**
+   ```bash
+   # 新しいCI実行の確認（30-60秒待機後）
+   gh run list --workflow=ci.yml --limit=1
+   # 期待される結果: "completed success"
+   ```
+
+**実際の修正例 (2025-01-24):**
+
+**問題のコード:**
+```typescript
+// ❌ Prettierエラーとなるコード
+private level: LogLevel = LogLevel.WARN;  // デフォルトを WARN に変更
+```
+
+**修正後のコード:**
+```typescript
+// ✅ Prettier準拠のコード  
+private level: LogLevel = LogLevel.WARN; // デフォルトを WARN に変更
+```
+
+**修正内容**: コメント前の不要なスペースを削除
+
+**CI実行結果:**
+- **修正前**: `completed failure` (lint ジョブでエラー)
+- **修正後**: `completed success` (全ジョブ通過、実行時間1分20秒)
+
+**よくある原因:**
+- コメント前後のスペーシング
+- インデントの不整合（タブとスペースの混在）
+- 行末の不要なスペース
+- セミコロンの前後のスペース
+
+**予防策:**
+
+1. **開発環境での事前チェック**
+   ```bash
+   # コミット前の必須チェック
+   npm run format:check
+   npm run lint
+   ```
+
+2. **VS Code 設定**
+   ```json
+   // .vscode/settings.json
+   {
+     "editor.formatOnSave": true,
+     "editor.codeActionsOnSave": {
+       "source.fixAll.eslint": true
+     }
+   }
+   ```
+
+3. **pre-commit フック設定（推奨）**
+   ```bash
+   # package.json に追加
+   "husky": {
+     "hooks": {
+       "pre-commit": "npm run format:check && npm run lint"
+     }
+   }
+   ```
+
+**参考コマンド:**
+```bash
+# 修正可能な項目の確認
+npx prettier --list-different "src/**/*.ts"
+
+# 修正内容のプレビュー  
+npx prettier --check --debug-check "src/**/*.ts"
+```
+
+---
+
 ## Claude Code セッション関連
 
 ### 🤖 Claude API 制限エラー
