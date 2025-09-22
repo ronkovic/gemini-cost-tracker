@@ -81,8 +81,8 @@
     "cli-table3": "^0.6.5",
     "commander": "^14.0.0",
     "dotenv": "^17.2.0",
-    "googleapis": "^154.0.0",
+    "googleapis": "^160.0.0",
     "inquirer": "^12.8.2",
-    "ora": "^8.2.0"
+    "ora": "^9.0.0"
   }
 }
